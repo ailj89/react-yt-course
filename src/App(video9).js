@@ -4,18 +4,16 @@ import { Home } from "./pages/Home";
 import { Contact } from "./pages/Contact";
 import { Menu } from "./pages/Menu";
 import { Profile } from "./pages/Profile";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { useState, createContext } from "react";
+
+export const AppContext = createContext();
 
 function App() {
-  const client = new QueryClient();
-  /* {queries: {
-      refetchOnWindowFocus: false
-    }}
-    */
+  const [username, setUsername] = useState("Dre");
 
   return (
     <div className="App">
-      <QueryClientProvider client={client}>
+      <AppContext.Provider value={{ username, setUsername }}>
         <Router>
           <header>
             <h1 style={{ display: "inline-block" }}>Router Practice</h1>
@@ -38,7 +36,7 @@ function App() {
             <Route path="*" element={<h1>404 Page Not Found</h1>} />
           </Routes>
         </Router>
-      </QueryClientProvider>
+      </AppContext.Provider>
     </div>
   );
 }
