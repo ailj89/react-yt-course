@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import { Form } from "../components/Form";
 import Axios from "axios";
 
 export const Home = () => {
@@ -12,7 +13,7 @@ export const Home = () => {
     queryFn: () => {
       return Axios.get("https://catfact.ninja/fact").then((res) => res.data);
     },
-    refetchOnWindowFocus: false,
+    // refetchOnWindowFocus: false,
   });
 
   if (isError) {
@@ -24,9 +25,13 @@ export const Home = () => {
   }
 
   return (
-    <h1>
-      This is the Home Page of <p>{catData?.fact}</p>
-      <button onClick={refetch}>Update</button>
-    </h1>
+    <div>
+      <h1>
+        This is the Home Page of <p>{catData?.fact}</p>
+        <button onClick={refetch}>Update</button>
+      </h1>
+
+      <Form />
+    </div>
   );
 };

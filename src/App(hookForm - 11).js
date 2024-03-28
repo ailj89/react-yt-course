@@ -7,11 +7,13 @@ import { Profile } from "./pages/Profile";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 function App() {
-  const client = new QueryClient();
-  /* {queries: {
-      refetchOnWindowFocus: false
-    }}
-    */
+  const client = new QueryClient({
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  });
+  /*
+   */
 
   return (
     <div className="App">
