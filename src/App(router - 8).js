@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <Router>
         <header>
-          <h1 style={{ display: "inline-block" }}>Router Practice</h1>
+          <h1 style={{ display: "inline-block" }}>Router Practice - Video 8</h1>
           <nav>
             <Link to="/">Home</Link>
             <Link to="menu">Menu</Link>
